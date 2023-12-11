@@ -3,5 +3,5 @@ streamlit-on-Hover-tabs
 Pillow
 pandas
 numpy
-sklearn
+scikit-learn
 joblib
