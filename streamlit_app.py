@@ -58,9 +58,12 @@ def questions():
     
     st.subheader('Demographics:')
     for question, options in demographics_questions.items():
-        selected_option = st.radio(question, options)
+        selected_option = st.radio(question, options, index=None)
         responses_dict['Question'].append(question)
         responses_dict['Answer'].append(selected_option)
+        if selected_option is None:
+            st.error(f'Please answer the question: {question}')
+            return None
         
 #     preference_questions = {
 # #         'Preferred learning mode': ['Face to Face', 'Asynchronous Online Learning (On your own time)', 
@@ -75,7 +78,7 @@ def questions():
         
     st.subheader('Preferred Communication Platform')
     selected_option = st.multiselect('Select all options that apply.', ['Email', 'University eLearning Chat Room',
-                                                                        'Whatsapp', 'Call', 'Telegram', 'Others'])
+                                                                        'Whatsapp', 'Call', 'Telegram', 'Others'],  default=None)
 #     responses_dict['Question'].append('Preferred Communication Platform')
 #     responses_dict['Answer'].append(', '.join(selected_option))
     if not selected_option:
@@ -144,9 +147,12 @@ def questions():
     
     st.subheader('The VAK Learning Styles Questions:')
     for question, options in vak_questions.items():
-        selected_option = st.radio(question, options)
+        selected_option = st.radio(question, options, index=None)
         responses_dict['Question'].append(question)
         responses_dict['Answer'].append(selected_option)
+        if selected_option is None:
+            st.error(f'Please answer the question: {question}')
+            return None
     
     if st.button('Submit'):
         # Convert the dictionary to a DataFrame
@@ -481,7 +487,8 @@ if tabs =='Home':
                     # Load the image
                     image = Image.open("Images/kinesthetic.png")
                 # Display the image with custom width and height
-                st.image(image, caption='Source: Freepik', use_column_width="always")
+#                 st.image(image, caption='Source: Freepik', use_column_width="always")
+                st.image(image, caption='Source: Freepik', width=250)
                 
             classification_model(responses_vak_df)
     
