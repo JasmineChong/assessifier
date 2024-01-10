@@ -451,7 +451,7 @@ def classification_model(df):
     st.session_state.csv_exists = True
     
     # Display the content in a list
-    st.header("Best Online Assessment Tool(s):")
+    st.header("Best Online Assessment Method(s):")
     for i, assessment in enumerate(final_df, start=1):
 #         st.text(f"{i}. {assessment}")
         st.write(f"- {assessment}")
@@ -460,7 +460,7 @@ def classification_model(df):
 
 # Individual tabs
 if tabs =='Home':
-    st.title('Curious to know which assessment method is best for you based on your learning style?')
+    st.title('Curious to know which assessment method(s) is best for you based on your learning style?')
     st.write('Fill in the questionnaire now!')
     responses_df = questions()
     # Check if the DataFrame is not None before performing other functions to ensure the questions() is being called first
@@ -495,7 +495,7 @@ if tabs =='Home':
 
 elif tabs == 'Exploratory Data Analysis':
     st.title('Exploratory Data Analysis')
-    st.write('Below features the descriptive analyses of the dataset utilized for model training, presented through dashboards. It provides insights into demographics and the preferred online assessment tools for visual, auditory and kinesthetic learners.')
+    st.write('Below features the descriptive analyses of the dataset utilized for model training, presented through dashboards. It provides insights into demographics and the preferred online assessment methods for visual, auditory and kinesthetic learners.')
     st.write('\n')
     # Tableau Public embed code
     tableau_embed_code_demographic = """
@@ -542,8 +542,8 @@ elif tabs == 'Documentation':
     
     st.header('Quick Guide')
     steps_list = [
-        'Click on the ‘Home’ tab to answer the questionnaire to identify your learning style and the online assessment tools that are best for you.', 
-        'Click on the ‘Exploratory Data Analysis’ tab to see the preferred online assessment tools for most visual, auditory and kinesthetic learners.', 
+        'Click on the ‘Home’ tab to answer the questionnaire to identify your learning style and the online assessment methods that are best for you.', 
+        'Click on the ‘Exploratory Data Analysis’ tab to see the preferred online assessment methods for most visual, auditory and kinesthetic learners.', 
         'Click on the ‘About’ tab to learn more about learning style and how learning style is related to assessment.',
         'Click on the ‘Documentation’ tab to view a brief functionality of the website and it is where you access the user manual document.']
     for i, item in enumerate(steps_list, start=1):
@@ -553,10 +553,10 @@ elif tabs == 'Documentation':
     st.markdown('[Click here for a detailed user manual](https://docs.google.com/document/d/1fpi2nS_uHRcyqF-JSOt0kUWTns3av-IkE24wZRxoftA/edit?usp=sharing)')
     
     st.subheader('Home')
-    st.write('The Home page contains a questionnaire for users to answer to find out their dominant learning style and which online assessment tools are best suited for them. There are a total of 33 questions for users to answer and it will take around 10 minutes to complete answering. The results will be displayed shortly on the same page after the \'Submit\' button has been clicked.')
+    st.write('The Home page contains a questionnaire for users to answer to find out their dominant learning style and which online assessment methods are best suited for them. There are a total of 33 questions for users to answer and it will take around 10 minutes to complete answering. The results will be displayed shortly on the same page after the \'Submit\' button has been clicked.')
     
     st.subheader('Exploratory Data Analysis')
-    st.write('The Exploratory Data Analysis page contains the descriptive analysis of the dataset used to train the model. It gives an overview of the demographics and the preferred online assessment tools for visual, auditory and kinesthetic learners.')
+    st.write('The Exploratory Data Analysis page contains the descriptive analysis of the dataset used to train the model. It gives an overview of the demographics and the preferred online assessment methods for visual, auditory and kinesthetic learners.')
     
     st.subheader('About')
     st.write('The About page contains information that provides users with a more comprehensive understanding of what learning style is and how learning style relates to assessment methods.')
